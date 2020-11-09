@@ -33,6 +33,10 @@
   }
 }
 
+.selected {
+  background: rgb(144, 192, 250);
+}
+
 * {
   //Works only on Firefox
   scrollbar-width: thin;
