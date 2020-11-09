@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -7,10 +7,14 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
-  //Reference
-  //ref helps to select an element. In js normaly is document.querySelector(div...)
-  const audioRef = useRef(null);
+const Player = ({
+  audioRef,
+  currentSong,
+  isPlaying,
+  setIsPlaying,
+  songInfo,
+  setSongInfo,
+}) => {
   const playSongHandler = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -20,11 +24,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
       setIsPlaying(true);
     }
   };
-  const timeUpdateHandler = (e) => {
-    const current = e.target.currentTime;
-    const duration = e.target.duration;
-    setSongInfo({ ...songInfo, currentTime: current, duration });
-  };
+
   const getTime = (time) => {
     return (
       //Formating time
@@ -35,10 +35,6 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     audioRef.current.currentTime = e.target.value;
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
-  const [songInfo, setSongInfo] = useState({
-    currentTime: 0,
-    duration: 0,
-  });
   return (
     <div className="player">
       <div className="time-control">
@@ -66,12 +62,6 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
           icon={faAngleRight}
         />
       </div>
-      <audio
-        onTimeUpdate={timeUpdateHandler}
-        onLoadedMetadata={timeUpdateHandler}
-        ref={audioRef}
-        src={currentSong.audio}
-      ></audio>
     </div>
   );
 };
