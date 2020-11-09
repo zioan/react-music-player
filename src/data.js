@@ -76,7 +76,7 @@ function chillHop() {
       cover:
         "https://chillhop.com/wp-content/uploads/2020/08/63d2d2cdabbc5df023603b5f47b2fb97963cb537-1024x1024.jpg",
       artist: "Sitting Duck, Hoffy Beats, Otaam",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=798",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=7981",
       color: ["#70CBB9", "#492821"],
       id: uuidv4(),
       active: false,
