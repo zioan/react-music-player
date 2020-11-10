@@ -4,7 +4,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   button {
-    background: transparent;
+    background: white;
     padding: 0.5rem;
     cursor: pointer;
     border: 2px solid rgb(65, 65, 65);
@@ -13,6 +13,14 @@ nav {
     &:hover {
       background: rgb(65, 65, 65);
       color: white;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    button {
+      z-index: 10;
     }
   }
 }
